@@ -15,24 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = DEFINED_PORT)
+@SpringBootTest
 public class EurekaApplicationTests {
-
-    @Autowired
-    private TestRestTemplate testRestTemplate;
-
-    @Test
-    public void catalogLoads() {
-        @SuppressWarnings("rawtypes")
-        ResponseEntity<Map> entity = testRestTemplate.getForEntity("/eureka/apps", Map.class);
-        assertEquals(HttpStatus.OK, entity.getStatusCode());
-    }
-
-    @Test
-    public void adminLoads() {
-        @SuppressWarnings("rawtypes")
-        ResponseEntity<Map> entity = testRestTemplate.getForEntity("/env", Map.class);
-        assertEquals(HttpStatus.OK, entity.getStatusCode());
-    }
 
 }
